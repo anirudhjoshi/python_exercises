@@ -2,21 +2,17 @@ def median( number ):
 
 	# Check if even
 	if even( number ):
-		median = number / 2
+		return number / 2
 	# Add one up - so rounding is unnecessary
 	else:
-		median = ( number + 1 ) / 2
-
-	return median
+		return ( number + 1 ) / 2
 
 def even( number ):
 
 	# Check remainder of dividing by 2 - if 1 - odd
 	# if 0 - even
-	mod = number % 2
-
 	# As 0 is even, return not, to make 1 - true
-	return not mod
+	return not number % 2
 
 def pascal( row ):
 
@@ -49,12 +45,11 @@ def pascal( row ):
 	if even( row ):
 	# Even rows don't require the first part of the reversal
 	# double up
-		level_array = level_array + level_array[::-1][1:]
+		reverse = level_array[::-1][1:]
 	else:
-		level_array = level_array + level_array[::-1]
+		reverse = level_array[::-1]
 
-	return level_array
-
+	return	level_array + reverse
 
 if __name__ == "__main__":
 	for number in xrange( 0, 10 ):
